@@ -1,0 +1,31 @@
+digraph proceso_decoraciones {
+  rankdir=LR
+  node [shape=box, style=rounded]
+
+ {
+    A [label="6 moléculas \n en SMLES"]
+    B [label="Estructuras \n tridimensionales"]
+    C [label="Estructuras \n optimizadas"]
+    D [label="Proteina \n transportadora \n de serotonina"]
+    E [label="Molecular \n docking"]
+    H [label="Docking score \n (FEB)"]
+    F [label="HOMO-LUMO"]
+    G [label="Análisis de \n Reactividad"]
+    L [label="Conclusiones"]
+  }
+
+  // Conexiones entre nodos
+  A -> B[label="Open babel"]
+  B -> C[label="Orca"]
+  B -> F[label="pySFC"]
+  C -> E[label="Open\n Babel"]
+  D -> E[label="MGL\n Tools"]
+  E -> H[label="Autodock\n Vina"]
+  F -> G[label="T. Koopmans"]
+  H -> L
+  G -> L
+  {
+    rank=same
+    A -> B [style=invis]
+  }
+}
